@@ -71,7 +71,7 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/var/games,%{_applnkdir}/Games/Arcade}
+install -d $RPM_BUILD_ROOT{/var/games,%{_desktopdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -88,7 +88,7 @@ ln -sf /var/games/Maelstrom-Scores $RPM_BUILD_ROOT%{_gamedir}
 # and playwave conflicts with SDL_mixer
 rm -f $RPM_BUILD_ROOT%{_bindir}/{macres,playwave,snd2wav}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -99,4 +99,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_gamedir}
 %attr(666,root,root) %config(noreplace) %verify(not md5 size mtime) /var/games/Maelstrom-Scores
-%{_applnkdir}/Games/Arcade/*
+%{_desktopdir}/*
