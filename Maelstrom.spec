@@ -15,7 +15,6 @@ Patch0:		http://mops.uci.agh.edu.pl/~gotar/%{name}-cheaters.patch
 Patch1:		%{name}-dirs.patch
 Patch2:		%{name}-amfix.patch
 URL:		http://www.devolution.com/~slouken/Maelstrom/
-BuildRequires:	SDL-devel
 BuildRequires:	SDL_net-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -44,8 +43,8 @@ Macintosha przez Andrew Welcha z Ambrosia Software.
 %patch2 -p1
 
 %build
-# make install forgets to install binaries
-aclocal
+rm -f missing
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
@@ -58,10 +57,6 @@ install -d $RPM_BUILD_ROOT{/var/games,%{_applnkdir}/Games/Arcade}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-#	GAME_INSTALLDIR=$RPM_BUILD_ROOT%{_gamedir} \
-#	target=$RPM_BUILD_ROOT%{_gamedir}
-#	prefix=$RPM_BUILD_ROOT%{_prefix}
 
 #mv $RPM_BUILD_ROOT%{_prefix}/bin $RPM_BUILD_ROOT%{_prefix}/X11R6
 rm -f $RPM_BUILD_ROOT%{_gamedir}/Images/Makefile*
