@@ -10,6 +10,7 @@ Release:	2
 License:	GPL for code, artwork and sounds can be redistributed only with Maelstrom
 Group:		X11/Applications/Games
 Source0:	http://www.devolution.com/~slouken/Maelstrom/src/%{name}-%{version}.tar.gz
+# Source0-md5:	8aab0e75ca52808fd6777535ebb1f1c4
 Source1:	%{name}.desktop
 Patch0:		%{name}-cheaters.patch
 Patch1:		%{name}-dirs.patch
