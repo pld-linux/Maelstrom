@@ -4,6 +4,6 @@ Comment=Maelstrom game
 Comment[pl]=Gra Maelstrom
 Exec=/usr/X11R6/bin/Maelstrom
 Icon=/usr/games/Maelstrom/icon.xpm
-Terminal=0
+Terminal=false
 Type=Application
 # vi: encoding=utf-8
