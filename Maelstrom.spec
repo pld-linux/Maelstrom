@@ -1,20 +1,29 @@
+#
+# Conditional build:
+# _with_cheaters
+#
 Summary:	Rockin' asteroids game
 Summary(pl):	Gra, w której strzelasz do asteroidów
 Name:		Maelstrom
 Version:	3.0.5
-Release:	1
+Release:	2
 License:	GPL for code, artwork and sounds can be redistributed only with Maelstrom
 Group:		X11/Application/Games
 Source0:	http://www.devolution.com/~slouken/Maelstrom/src/%{name}-%{version}.tar.gz
 Source1:	http://mops.uci.agh.edu.pl/~gotar/%{name}.desktop
 Patch0:		http://mops.uci.agh.edu.pl/~gotar/%{name}-cheaters.patch
+Patch1:		%{name}-dirs.patch
+Patch2:		%{name}-amfix.patch
 URL:		http://www.devolution.com/~slouken/Maelstrom/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_net-devel
-#BuildRequires:	autoconf
-#BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_prefix		/usr/X11R6
+%define		_gamedir	%{_datadir}/Maelstrom
 
 %description
 Maelstrom is a rockin' asteroids game ported from the Macintosh
@@ -30,24 +39,41 @@ Macintosha przez Andrew Welcha z Ambrosia Software.
 %setup	-q
 # everlasting shield, more shots available, all-in-one equipment and
 # reversed bonus in time function ;)
-#%patch0 -p1
+%{?_with_cheaters:%patch0 -p1}
+%patch1 -p1
+%patch2 -p1
 
 %build
 # make install forgets to install binaries
-#aclocal
-#%{__autoconf}
-#%{__automake}
-%configure2_13
+aclocal
+%{__autoconf}
+%{__automake}
+%configure
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_prefix}/X11R6,%{_applnkdir}/Games/Arcade}
+install -d $RPM_BUILD_ROOT{/var/games,%{_applnkdir}/Games/Arcade}
 
-%{__make} install prefix=$RPM_BUILD_ROOT%{_prefix} DESTDIR=$RPM_BUILD_ROOT
-mv $RPM_BUILD_ROOT%{_prefix}/bin $RPM_BUILD_ROOT%{_prefix}/X11R6
-rm -f $RPM_BUILD_ROOT%{_prefix}/games/Maelstrom/Images/Makefile*
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+#	GAME_INSTALLDIR=$RPM_BUILD_ROOT%{_gamedir} \
+#	target=$RPM_BUILD_ROOT%{_gamedir}
+#	prefix=$RPM_BUILD_ROOT%{_prefix}
+
+#mv $RPM_BUILD_ROOT%{_prefix}/bin $RPM_BUILD_ROOT%{_prefix}/X11R6
+rm -f $RPM_BUILD_ROOT%{_gamedir}/Images/Makefile*
 rm -f Docs/Makefile*
+
+# /usr is read-only
+mv -f $RPM_BUILD_ROOT%{_gamedir}/Maelstrom-Scores $RPM_BUILD_ROOT/var/games
+ln -sf /var/games/Maelstrom-Scores $RPM_BUILD_ROOT%{_gamedir}
+
+# not needed (examples for internal Mac library)
+# and playwave conflicts with SDL_mixer
+rm -f $RPM_BUILD_ROOT%{_bindir}/{macres,playwave,snd2wav}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
 
@@ -57,9 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README* Changelog COPYING CREDITS Docs
-%attr(755,root,root) %{_prefix}/X11R6/bin/*
-%{_prefix}/games/Maelstrom/Images
-%{_prefix}/games/Maelstrom/Maelstrom_*
-%{_prefix}/games/Maelstrom/icon.*
-%attr(666,root,root) %config(noreplace) %verify(not md5 size mtime) %{_prefix}/games/Maelstrom/Maelstrom-Scores
+%attr(755,root,root) %{_bindir}/*
+%{_gamedir}
+%attr(666,root,root) %config(noreplace) %verify(not md5 size mtime) /var/games/Maelstrom-Scores
 %{_applnkdir}/Games/Arcade/*
