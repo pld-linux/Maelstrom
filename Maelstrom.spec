@@ -6,7 +6,7 @@ Summary:	Rockin' asteroids game
 Summary(pl):	Gra, w której strzelasz do asteroidów
 Name:		Maelstrom
 Version:	3.0.6
-Release:	1
+Release:	2
 License:	GPL for code, artwork and sounds can be redistributed only with Maelstrom
 Group:		X11/Applications/Games
 Source0:	http://www.devolution.com/~slouken/Maelstrom/src/%{name}-%{version}.tar.gz
@@ -14,6 +14,7 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-cheaters.patch
 Patch1:		%{name}-dirs.patch
 Patch2:		%{name}-amfix.patch
+Patch3:		%{name}-sec.patch
 URL:		http://www.devolution.com/~slouken/Maelstrom/
 BuildRequires:	SDL_net-devel
 BuildRequires:	autoconf
@@ -40,6 +41,7 @@ Macintosha przez Andrew Welcha z Ambrosia Software.
 %{?_with_cheaters:%patch0 -p1}
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 rm -f missing
