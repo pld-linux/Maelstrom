@@ -6,5 +6,6 @@ Comment[pl]=Gra Maelstrom
 Exec=/usr/X11R6/bin/Maelstrom
 Icon=/usr/games/Maelstrom/icon.xpm
 Terminal=false
+Categories=Game;ArcadeGame;
 Type=Application
 # vi: encoding=utf-8
