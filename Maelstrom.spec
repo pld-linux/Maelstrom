@@ -40,7 +40,7 @@ BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gamedir	%{_datadir}/Maelstrom
-%define		specflags_ia32	"-fomit-frame-pointer"
+%define		specflags_ia32	 -fomit-frame-pointer 
 
 %description
 Maelstrom is a rockin' asteroids game ported from the Macintosh
