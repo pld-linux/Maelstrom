@@ -2,6 +2,21 @@
 # Conditional build:
 # _with_cheaters
 #
+# Straced order of file searching:
+# %Maelstrom Sprites
+# Maelstrom Sprites.bin
+# Maelstrom Sprites
+# %Maelstrom_Sprites
+# Maelstrom_Sprites.bin
+# Maelstrom_Sprites
+#
+# %Maelstrom Sounds
+# Maelstrom Sounds.bin
+# Maelstrom Sounds
+# %Maelstrom_Sounds
+# Maelstrom_Sounds.bin
+# Maelstrom_Sounds
+
 Summary:	Rockin' asteroids game
 Summary(pl):	Gra, w której strzelasz do asteroidów
 Name:		Maelstrom
