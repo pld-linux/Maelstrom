@@ -6,7 +6,7 @@ Summary:	Rockin' asteroids game
 Summary(pl):	Gra, w której strzelasz do asteroidów
 Name:		Maelstrom
 Version:	3.0.6
-Release:	2
+Release:	3
 License:	GPL for code, artwork and sounds can be redistributed only with Maelstrom
 Group:		X11/Applications/Games
 # Source0-md5:	8aab0e75ca52808fd6777535ebb1f1c4
