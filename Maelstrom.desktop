@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Maelstrom
+Comment=Maelstrom game
+Comment[pl]=Gra Maelstrom
+Exec=/usr/X11R6/bin/Maelstrom
+Icon=/usr/games/Maelstrom/icon.xpm
+Terminal=0
+Type=Application
+# vi: encoding=utf-8
