@@ -8,7 +8,7 @@ Name:		Maelstrom
 Version:	3.0.5
 Release:	2
 License:	GPL for code, artwork and sounds can be redistributed only with Maelstrom
-Group:		X11/Application/Games
+Group:		X11/Applications/Games
 Source0:	http://www.devolution.com/~slouken/Maelstrom/src/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-cheaters.patch
