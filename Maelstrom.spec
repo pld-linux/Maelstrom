@@ -19,6 +19,7 @@
 
 Summary:	Rockin' asteroids game
 Summary(pl):	Gra, w której strzelasz do asteroidów
+Summary(pt_BR):	Maelstrom - um jogo tipo Asteroids muito bem-feito
 Name:		Maelstrom
 Version:	3.0.6
 Release:	3
@@ -50,6 +51,17 @@ to UNIX and then SDL by Sam Lantinga <slouken@devolution.com>.
 Maelstrom jest kosmiczn± strzelank± sportowan± na UNIXy i SDL przez
 Sama Lantinga <slouken@devolution.com>, oryginalnie napisan± na
 Macintosha przez Andrew Welcha z Ambrosia Software.
+
+%description -l pt_BR
+O Maelstrom é um jogo de asteróides vagantes portado do Macintosh,
+originalmente escrito por Andrew Welch da Ambrosia Software, e portado 
+para o UNIX e SDL por Sam Lantinga.
+
+Sua nave está no temido círculo de asteróides "Maelstrom", e você tem 
+que sobreviver explodindo todos os asteróides e evitando outros 
+inimigos como estrelas Nova, turbilhões e naves e minas Shenobi.
+
+Gráficos 3D muito legais e sons, com suporte a temas e jogos via rede.
 
 %prep
 %setup	-q
