@@ -44,8 +44,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Maelstrom is a rockin' asteroids game ported from the Macintosh
-Originally written by Andrew Welch of Ambrosia Software, and ported
-to UNIX and then SDL by Sam Lantinga <slouken@devolution.com>.
+Originally written by Andrew Welch of Ambrosia Software, and ported to
+UNIX and then SDL by Sam Lantinga <slouken@devolution.com>.
 
 %description -l pl
 Maelstrom jest kosmiczn± strzelank± sportowan± na UNIXy i SDL przez
@@ -54,11 +54,11 @@ Macintosha przez Andrew Welcha z Ambrosia Software.
 
 %description -l pt_BR
 O Maelstrom é um jogo de asteróides vagantes portado do Macintosh,
-originalmente escrito por Andrew Welch da Ambrosia Software, e portado 
+originalmente escrito por Andrew Welch da Ambrosia Software, e portado
 para o UNIX e SDL por Sam Lantinga.
 
-Sua nave está no temido círculo de asteróides "Maelstrom", e você tem 
-que sobreviver explodindo todos os asteróides e evitando outros 
+Sua nave está no temido círculo de asteróides "Maelstrom", e você tem
+que sobreviver explodindo todos os asteróides e evitando outros
 inimigos como estrelas Nova, turbilhões e naves e minas Shenobi.
 
 Gráficos 3D muito legais e sons, com suporte a temas e jogos via rede.
@@ -110,5 +110,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc README* Changelog COPYING CREDITS Docs
 %attr(755,root,root) %{_bindir}/*
 %{_gamedir}
-%attr(666,root,root) %config(noreplace) %verify(not md5 size mtime) /var/games/Maelstrom-Scores
+%attr(666,root,root) %config(noreplace) %verify(not md5 mtime size) /var/games/Maelstrom-Scores
 %{_desktopdir}/*
