@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_cheaters
+%bcond_with	cheaters
 #
 # Straced order of file searching:
 # %Maelstrom Sprites
@@ -18,11 +18,11 @@
 # Maelstrom_Sounds
 
 Summary:	Rockin' asteroids game
-Summary(pl):	Gra, w której strzelasz do asteroidów
+Summary(pl):	Gra, w której strzela siê do asteroidów
 Summary(pt_BR):	Maelstrom - um jogo tipo Asteroids muito bem-feito
 Name:		Maelstrom
 Version:	3.0.6
-Release:	5
+Release:	6
 License:	GPL for code, artwork and sounds can be redistributed only with Maelstrom
 Group:		X11/Applications/Games
 # Source0-md5:	8aab0e75ca52808fd6777535ebb1f1c4
@@ -48,7 +48,7 @@ Originally written by Andrew Welch of Ambrosia Software, and ported to
 UNIX and then SDL by Sam Lantinga <slouken@devolution.com>.
 
 %description -l pl
-Maelstrom jest kosmiczn± strzelank± sportowan± na UNIXy i SDL przez
+Maelstrom jest kosmiczn± strzelank± sportowan± na Uniksy i SDL przez
 Sama Lantinga <slouken@devolution.com>, oryginalnie napisan± na
 Macintosha przez Andrew Welcha z Ambrosia Software.
 
@@ -67,13 +67,12 @@ Gráficos 3D muito legais e sons, com suporte a temas e jogos via rede.
 %setup	-q
 # everlasting shield, more shots available, all-in-one equipment and
 # reversed bonus in time function ;)
-%{?_with_cheaters:%patch0 -p1}
+%{?with_cheaters:%patch0 -p1}
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -88,7 +87,6 @@ install -d $RPM_BUILD_ROOT{/var/games,%{_desktopdir}}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#mv $RPM_BUILD_ROOT%{_prefix}/bin $RPM_BUILD_ROOT%{_prefix}/X11R6
 rm -f $RPM_BUILD_ROOT%{_gamedir}/Images/Makefile*
 rm -f Docs/Makefile*
 
@@ -108,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README* Changelog COPYING CREDITS Docs
-%attr(755,root,root) %{_bindir}/*
+%attr(2755,root,games) %{_bindir}/*
 %{_gamedir}
-%attr(666,root,root) %config(noreplace) %verify(not md5 mtime size) /var/games/Maelstrom-Scores
-%{_desktopdir}/*
+%attr(664,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/Maelstrom-Scores
+%{_desktopdir}/*.desktop
