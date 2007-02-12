@@ -18,8 +18,8 @@
 # Maelstrom_Sounds
 
 Summary:	Rockin' asteroids game
-Summary(pl.UTF-8):   Gra, w której strzela się do asteroidów
-Summary(pt_BR.UTF-8):   Maelstrom - um jogo tipo Asteroids muito bem-feito
+Summary(pl.UTF-8):	Gra, w której strzela się do asteroidów
+Summary(pt_BR.UTF-8):	Maelstrom - um jogo tipo Asteroids muito bem-feito
 Name:		Maelstrom
 Version:	3.0.6
 Release:	6
