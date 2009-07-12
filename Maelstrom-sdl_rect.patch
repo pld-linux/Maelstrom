@@ -1,0 +1,13 @@
+--- Maelstrom-3.0.6/screenlib/SDL_FrameBuf.cpp.orig	2009-07-12 22:02:17.000000000 +0200
++++ Maelstrom-3.0.6/screenlib/SDL_FrameBuf.cpp	2009-07-12 22:06:29.334128859 +0200
+@@ -848,8 +848,8 @@
+ 			for ( i=0; i<dirtymaplen; ++i ) {
+ 				if ( dirtymap[i] != NULL ) {
+ 					dirtymap[i] = (SDL_Rect *)(
+-					((int)dirtymap[i]-(int)updatelist) +
+-								(int)newlist
++					((long)dirtymap[i]-(long)updatelist) +
++								(long)newlist
+ 					);
+ 				}
+ 			}
