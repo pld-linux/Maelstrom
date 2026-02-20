@@ -22,7 +22,7 @@ Summary(pl.UTF-8):	Gra, w której strzela się do asteroidów
 Summary(pt_BR.UTF-8):	Maelstrom - um jogo tipo Asteroids muito bem-feito
 Name:		Maelstrom
 Version:	3.0.6
-Release:	7
+Release:	8
 License:	GPL for code, artwork and sounds can be redistributed only with Maelstrom
 Group:		X11/Applications/Games
 Source0:	http://www.devolution.com/~slouken/projects/Maelstrom/src/%{name}-%{version}.tar.gz
